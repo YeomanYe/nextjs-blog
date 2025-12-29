@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #00d4ff;
+  --secondary-color: #7b68ee;
+  --background-color: #0a0e27;
+  --text-color: #e0e0e0;
+  --border-color: #1e293b;
+  --card-background: #111827;
+  --accent-color: #ff0080;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(0, 212, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(123, 104, 238, 0.05) 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+a {
+  color: var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--secondary-color);
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Tech-style components */
+.post-card {
+  @apply bg-[var(--card-background)] rounded-lg shadow-lg p-6 mb-6 transition-all duration-300 hover:shadow-2xl border border-[var(--border-color)] hover:border-[var(--primary-color)];
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.tag {
+  @apply bg-blue-900/30 text-[var(--primary-color)] text-xs font-medium px-2.5 py-0.5 rounded-full mr-2 mb-2 inline-block border transition-all duration-300 hover:bg-blue-900/50;
+  border-color: rgba(0, 212, 255, 0.3);
+}
+
+.btn {
+  @apply bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[0_0_15px_rgba(0,212,255,0.5)];
+}
+
+/* Ensure button text remains white on hover */
+.btn:hover {
+  color: white;
+  text-shadow: none;
+}
+
+.btn-secondary {
+  @apply bg-[var(--card-background)] hover:bg-[var(--border-color)] text-[var(--text-color)] font-medium py-2 px-4 rounded-lg transition-all duration-300 border border-[var(--border-color)] hover:border-[var(--primary-color)];
+}
+
+/* Ensure secondary button text color remains consistent on hover */
+.btn-secondary:hover {
+  color: var(--text-color);
+  text-shadow: none;
+}
+
+/* Tech-style headings */
+h1, h2, h3, h4, h5, h6 {
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Tech-style input fields */
+input[type="text"], input[type="email"], input[type="password"], textarea, select {
+  @apply bg-[var(--card-background)] border border-[var(--border-color)] rounded-lg px-4 py-2 text-[var(--text-color)] focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent transition-all duration-300;
+}
+
+/* Grid background effect */
+.grid-background {
+  background-image: 
+    linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Card hover effect */
+.tech-card {
+  @apply bg-[var(--card-background)] rounded-lg shadow-lg p-6 transition-all duration-300 border border-[var(--border-color)] hover:border-[var(--primary-color)] hover:shadow-[0_0_20px_rgba(0,212,255,0.2)];
+}
+
+/* Gradient border */
+.gradient-border {
+  @apply relative rounded-lg;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  border-radius: 10px;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+  background-size: 200% 200%;
+  animation: gradient-animation 3s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

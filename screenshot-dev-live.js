@@ -8,10 +8,6 @@ const routes = [
   '/about',
   '/blog',
   '/projects',
-  // 添加博客文章页面
-  '/blog/getting-started-with-nextjs-13',
-  '/blog/the-benefits-of-typescript',
-  '/blog/building-responsive-uis-with-tailwind-css'
 ];
 
 // 开发服务器地址

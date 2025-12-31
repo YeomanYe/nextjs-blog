@@ -28,10 +28,10 @@ function getMdFiles(): string[] {
 }
 
 // Helper function to parse a Markdown file and return a Post object
-function parsePost(filePath: string): Post {
+async function parsePost(filePath: string): Promise<Post> {
   const fileContent = fs.readFileSync(filePath, 'utf8');
   const { data, content } = matter(fileContent);
-  const htmlContent = marked(content);
+  const htmlContent = await marked(content);
   const fileName = path.basename(filePath, '.md');
   
   return {
@@ -49,10 +49,10 @@ function parsePost(filePath: string): Post {
 // Get all posts from Markdown files
 export async function getPosts(): Promise<Post[]> {
   const mdFiles = getMdFiles();
-  const posts = mdFiles.map(file => {
+  const posts = await Promise.all(mdFiles.map(async (file) => {
     const filePath = path.join(blogDir, file);
-    return parsePost(filePath);
-  });
+    return await parsePost(filePath);
+  }));
   
   // Sort posts by date (newest first)
   return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
@@ -64,7 +64,7 @@ export async function getPostBySlug(slug: string): Promise<Post | undefined> {
   
   for (const file of mdFiles) {
     const filePath = path.join(blogDir, file);
-    const post = parsePost(filePath);
+    const post = await parsePost(filePath);
     
     if (post.slug === slug) {
       return post;

@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { getPostBySlug } from '../../../lib/posts';
+import { getPostBySlug, getPosts } from '../../../lib/posts';
 import Comments from '../../../components/Comments';
 
 interface Post {
@@ -17,10 +17,9 @@ interface Params {
 
 export async function generateMetadata({
   params,
-}: {
-  params: Params;
-}) {
-  const post = await getPostBySlug(params.slug);
+}: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
   
   if (!post) {
     return {
@@ -34,8 +33,17 @@ export async function generateMetadata({
   };
 }
 
-export default async function Post({ params }: { params: Params }) {
-  const post = await getPostBySlug(params.slug);
+export async function generateStaticParams() {
+  const posts = await getPosts();
+  
+  return posts.map(post => ({
+    slug: post.slug
+  }));
+}
+
+export default async function Post({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
   
   if (!post) {
     notFound();

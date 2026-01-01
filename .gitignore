@@ -49,3 +49,6 @@ Thumbs.db
 # logs
 build.log
 *.log
+
+tests/screenshots/
+test-results/screenshot-*

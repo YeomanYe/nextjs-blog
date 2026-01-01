@@ -6,7 +6,7 @@
 
 - **框架**: Next.js 15+
 - **语言**: TypeScript 5.7+
-- **样式**: Tailwind CSS 3.4+
+- **样式**: Tailwind CSS 4.0+
 - **Markdown 解析**: gray-matter + marked
 - **构建工具**: Next.js 内置
 
@@ -223,6 +223,12 @@ MIT License
 欢迎提交 Issue 和 Pull Request！
 
 ## 更新日志
+
+### v1.2.0
+- 升级Tailwind CSS到v4版本
+- 项目版本更新到1.2.0
+- Tailwind CSS：4.0.0
+- 支持playwright测试
 
 ### v1.1.0
 - 重构项目，升级到最新依赖版本

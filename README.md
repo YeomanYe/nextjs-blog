@@ -137,7 +137,7 @@ export default function ContactPage() {
 
 ### 1. 首页
 
-![首页预览](./screenshots/index-dev-live.png)
+![首页预览](./tests/snapshots/screenshot.test.js-snapshots/home-page-darwin.png)
 
 **效果描述：**
 - 现代化的首页设计，采用深色主题配色方案
@@ -148,7 +148,7 @@ export default function ContactPage() {
 
 ### 2. 关于页
 
-![关于页预览](./screenshots/about-dev-live.png)
+![关于页预览](./tests/snapshots/screenshot.test.js-snapshots/about-page-darwin.png)
 
 **效果描述：**
 - 简洁的关于页面，展示个人信息和技能
@@ -159,7 +159,7 @@ export default function ContactPage() {
 
 ### 3. 博客列表页
 
-![博客列表页预览](./screenshots/blog-dev-live.png)
+![博客列表页预览](./tests/snapshots/screenshot.test.js-snapshots/blog-page-darwin.png)
 
 **效果描述：**
 - 清晰的博客文章列表，展示文章标题、摘要和标签
@@ -170,7 +170,7 @@ export default function ContactPage() {
 
 ### 4. 项目页
 
-![项目页预览](./screenshots/projects-dev-live.png)
+![项目页预览](./tests/snapshots/screenshot.test.js-snapshots/projects-page-darwin.png)
 
 **效果描述：**
 - 展示个人项目的列表页面

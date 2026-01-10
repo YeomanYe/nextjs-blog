@@ -1,3 +1,8 @@
+'use client';
+
+import { useState, useMemo } from 'react';
+import ProjectFilter from '../../components/ProjectFilter';
+
 interface Project {
   id: string;
   title: string;
@@ -9,70 +14,111 @@ interface Project {
 }
 
 export default function Projects() {
-  // Mock data for projects with icons
-  const projects: Project[] = [
-    {
-      id: '1',
-      title: 'E-commerce Platform',
-      description: 'A modern e-commerce platform built with Next.js and TypeScript, featuring a responsive design, user authentication, and payment integration.',
-      technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Stripe', 'MongoDB'],
-      link: '#',
-      github: '#',
-      icon: '🛒'
-    },
-    {
-      id: '2',
-      title: 'Task Management App',
-      description: 'A collaborative task management application with real-time updates, built using React, Node.js, and Socket.io.',
-      technologies: ['React', 'Node.js', 'Socket.io', 'PostgreSQL', 'Redis'],
-      link: '#',
-      github: '#',
-      icon: '📋'
-    },
-    {
-      id: '3',
-      title: 'Blogging Platform',
-      description: 'A full-featured blogging platform with markdown support, category management, and user commenting system.',
-      technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'MongoDB'],
-      link: '#',
-      github: '#',
-      icon: '📝'
-    },
-    {
-      id: '4',
-      title: 'Portfolio Website',
-      description: 'A personal portfolio website showcasing projects and skills, built with Next.js and Tailwind CSS.',
-      technologies: ['Next.js', 'Tailwind CSS', 'React', 'TypeScript'],
-      link: '#',
-      github: '#',
-      icon: '💼'
-    },
-    {
-      id: '5',
-      title: 'AI Chatbot',
-      description: 'An intelligent chatbot powered by machine learning, capable of understanding and responding to natural language queries.',
-      technologies: ['Python', 'TensorFlow', 'Flask', 'React', 'MongoDB'],
-      link: '#',
-      github: '#',
-      icon: '🤖'
-    },
-    {
-      id: '6',
-      title: 'Weather App',
-      description: 'A real-time weather application that provides accurate weather forecasts and historical data visualization.',
-      technologies: ['React', 'TypeScript', 'OpenWeather API', 'Chart.js'],
-      link: '#',
-      github: '#',
-      icon: '🌤️'
-    }
-  ];
-  
+  // Mock data for projects with icons - use useMemo to cache the array
+  const allProjects: Project[] = useMemo(
+    () => [
+      {
+        id: '1',
+        title: 'E-commerce Platform',
+        description:
+          'A modern e-commerce platform built with Next.js and TypeScript, featuring a responsive design, user authentication, and payment integration.',
+        technologies: [
+          'Next.js',
+          'TypeScript',
+          'Tailwind CSS',
+          'Stripe',
+          'MongoDB',
+        ],
+        link: '#',
+        github: '#',
+        icon: '🛒',
+      },
+      {
+        id: '2',
+        title: 'Task Management App',
+        description:
+          'A collaborative task management application with real-time updates, built using React, Node.js, and Socket.io.',
+        technologies: ['React', 'Node.js', 'Socket.io', 'PostgreSQL', 'Redis'],
+        link: '#',
+        github: '#',
+        icon: '📋',
+      },
+      {
+        id: '3',
+        title: 'Blogging Platform',
+        description:
+          'A full-featured blogging platform with markdown support, category management, and user commenting system.',
+        technologies: [
+          'Next.js',
+          'React',
+          'TypeScript',
+          'Tailwind CSS',
+          'MongoDB',
+        ],
+        link: '#',
+        github: '#',
+        icon: '📝',
+      },
+      {
+        id: '4',
+        title: 'Portfolio Website',
+        description:
+          'A personal portfolio website showcasing projects and skills, built with Next.js and Tailwind CSS.',
+        technologies: ['Next.js', 'Tailwind CSS', 'React', 'TypeScript'],
+        link: '#',
+        github: '#',
+        icon: '💼',
+      },
+      {
+        id: '5',
+        title: 'AI Chatbot',
+        description:
+          'An intelligent chatbot powered by machine learning, capable of understanding and responding to natural language queries.',
+        technologies: ['Python', 'TensorFlow', 'Flask', 'React', 'MongoDB'],
+        link: '#',
+        github: '#',
+        icon: '🤖',
+      },
+      {
+        id: '6',
+        title: 'Weather App',
+        description:
+          'A real-time weather application that provides accurate weather forecasts and historical data visualization.',
+        technologies: ['React', 'TypeScript', 'OpenWeather API', 'Chart.js'],
+        link: '#',
+        github: '#',
+        icon: '🌤️',
+      },
+    ],
+    [],
+  );
+
+  const [filteredProjects, setFilteredProjects] =
+    useState<Project[]>(allProjects);
+
   return (
     <div>
       <h1 className="text-4xl font-bold mb-8">My Projects</h1>
-      
+
+      {/* Search and Filter Section */}
+      <ProjectFilter
+        projects={allProjects}
+        onFilteredProjectsChange={setFilteredProjects}
+      />
+
+      {/* Results Count */}
+      <div className="mb-6">
+        <p className="text-[var(--text-color)]/80">
+          Showing{' '}
+          <span className="font-medium text-[var(--primary-color)]">
+            {filteredProjects.length}
+          </span>{' '}
+          project(s)
+        </p>
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project) => (
+        {filteredProjects.map((project) => (
           <div key={project.id} className="tech-card group">
             <div className="absolute top-0 left-0 w-full h-full grid-background opacity-10 transition-opacity duration-300 group-hover:opacity-20"></div>
             <div className="relative z-10">
@@ -87,18 +133,19 @@ export default function Projects() {
                   </h2>
                 </div>
                 <div className="flex space-x-2 opacity-70 group-hover:opacity-100 transition-opacity duration-300">
-                  <a 
-                    href={project.github} 
-                    target="_blank" 
+                  <a
+                    href={project.github}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="text-[var(--text-color)] hover:text-[var(--primary-color)] transition-colors flex items-center gap-1"
                     aria-label="GitHub"
                   >
-                    <span className="text-[var(--primary-color)]">✦</span> GitHub
+                    <span className="text-[var(--primary-color)]">✦</span>{' '}
+                    GitHub
                   </a>
-                  <a 
-                    href={project.link} 
-                    target="_blank" 
+                  <a
+                    href={project.link}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="text-[var(--text-color)] hover:text-[var(--primary-color)] transition-colors flex items-center gap-1"
                     aria-label="Live Demo"
@@ -107,12 +154,12 @@ export default function Projects() {
                   </a>
                 </div>
               </div>
-              
+
               {/* Project Description */}
               <p className="text-[var(--text-color)]/80 mb-5 line-clamp-3">
                 {project.description}
               </p>
-              
+
               {/* Technologies */}
               <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech) => (

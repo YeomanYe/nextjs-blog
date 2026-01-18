@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
-import { getPostBySlug, getPosts } from '../../../lib/posts';
-import Comments from '../../../components/Comments';
+import { getPostBySlug, getPosts } from '@/lib/posts';
+import Comments from '@/components/Comments';
 
 interface Post {
   id: string;

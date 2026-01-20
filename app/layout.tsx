@@ -2,6 +2,7 @@ import '../styles/globals.css';
 import type { Metadata } from 'next';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { getLocale } from '../lib/i18n';
 
 export const metadata: Metadata = {
   title: 'My Personal Blog',
@@ -10,11 +11,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params?: { locale?: string };
 }) {
+  // Get the current locale from params or use default
+  const locale = params?.locale || 'en-US';
+  
   return (
-    <html lang="en">
+    <html lang={locale}>
       <head>
         {/* Plausible Analytics - replace with your own domain */}
         <script
@@ -24,11 +30,11 @@ export default function RootLayout({
         ></script>
       </head>
       <body>
-        <Navbar />
+        <Navbar locale={locale} />
         <main className="container mx-auto py-8">
           {children}
         </main>
-        <Footer />
+        <Footer locale={locale} />
       </body>
     </html>
   );

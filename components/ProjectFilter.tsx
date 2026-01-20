@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useEffect, useMemo } from 'react';
+import { t } from '../lib/i18n';
+import { SupportedLanguage } from '../locales/types';
 
 interface Project {
   id: string;
@@ -15,9 +17,10 @@ interface Project {
 interface ProjectFilterProps {
   projects: Project[];
   onFilteredProjectsChange: (filteredProjects: Project[]) => void;
+  locale: SupportedLanguage;
 }
 
-export default function ProjectFilter({ projects, onFilteredProjectsChange }: ProjectFilterProps) {
+export default function ProjectFilter({ projects, onFilteredProjectsChange, locale }: ProjectFilterProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [sortOption, setSortOption] = useState<'newest' | 'oldest' | 'name'>('name');
@@ -93,7 +96,7 @@ export default function ProjectFilter({ projects, onFilteredProjectsChange }: Pr
               disabled={!searchTerm}
             >
               <span className="flex items-center gap-1">
-                <span>🔄</span> Clear
+                <span>🔄</span> {t(locale, 'blog.clearFilter')}
               </span>
             </button>
           </div>
@@ -123,15 +126,15 @@ export default function ProjectFilter({ projects, onFilteredProjectsChange }: Pr
 
           {/* Sort */}
           <div className="flex items-center gap-3">
-            <span className="text-sm font-medium text-[var(--text-color)]/90">Sort by:</span>
+            <span className="text-sm font-medium text-[var(--text-color)]/90">{t(locale, 'blog.sort')}</span>
             <select
               className="px-4 py-1.5 border border-[var(--border-color)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent bg-[var(--card-background)] text-[var(--text-color)] text-sm"
               value={sortOption}
               onChange={(e) => setSortOption(e.target.value as 'newest' | 'oldest' | 'name')}
             >
               <option value="name">Name</option>
-              <option value="newest">Newest First</option>
-              <option value="oldest">Oldest First</option>
+              <option value="newest">{t(locale, 'blog.newest')}</option>
+              <option value="oldest">{t(locale, 'blog.oldest')}</option>
             </select>
           </div>
         </div>

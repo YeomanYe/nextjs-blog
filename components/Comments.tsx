@@ -1,12 +1,14 @@
 'use client';
 
 import { useEffect } from 'react';
+import { SupportedLanguage } from '../locales/types';
 
 interface CommentsProps {
   postId: string;
+  locale: SupportedLanguage;
 }
 
-export default function Comments({ postId }: CommentsProps) {
+export default function Comments({ postId, locale }: CommentsProps) {
   useEffect(() => {
     // Load Giscus script with dark theme
     const script = document.createElement('script');
@@ -24,7 +26,7 @@ export default function Comments({ postId }: CommentsProps) {
     script.setAttribute('data-emit-metadata', '0');
     script.setAttribute('data-input-position', 'bottom');
     script.setAttribute('data-theme', 'dark'); // Set to dark theme to match our design
-    script.setAttribute('data-lang', 'en');
+    script.setAttribute('data-lang', locale.split('-')[0]); // Use language code (e.g., 'en' or 'zh')
     script.setAttribute('crossorigin', 'anonymous');
     script.async = true;
     
@@ -40,7 +42,7 @@ export default function Comments({ postId }: CommentsProps) {
         container.innerHTML = '';
       }
     };
-  }, [postId]);
+  }, [postId, locale]);
   
   return (
     <div className="mt-8">

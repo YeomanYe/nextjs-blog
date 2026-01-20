@@ -1,0 +1,64 @@
+{
+  "navigation": {
+    "home": "首页",
+    "about": "关于我",
+    "blog": "博客",
+    "projects": "项目"
+  },
+  "home": {
+    "hero": {
+      "title": "欢迎来到 TechBlog",
+      "subtitle": "探索技术、编程和创新的前沿。随时了解最新趋势和见解。",
+      "exploreArticles": "浏览文章",
+      "viewProjects": "查看项目"
+    },
+    "latestArticles": "最新文章",
+    "viewAll": "查看全部"
+  },
+  "blog": {
+    "title": "文章",
+    "searchPlaceholder": "搜索文章...",
+    "clearFilter": "清除",
+    "filterByTags": "按标签筛选:",
+    "sort": "排序:",
+    "newest": "最新",
+    "oldest": "最旧",
+    "showingResults": "显示 {count} 篇文章",
+    "readMore": "阅读更多 →",
+    "comments": "评论",
+    "noComments": "暂无评论",
+    "writeComment": "写下你的评论...",
+    "submitComment": "提交评论"
+  },
+  "projects": {
+    "title": "我的项目",
+    "showingResults": "显示 {count} 个项目",
+    "github": "GitHub",
+    "demo": "演示"
+  },
+  "about": {
+    "title": "关于我",
+    "profile": {
+      "technicalSkills": "技术技能",
+      "socialLinks": {
+        "twitter": "Twitter",
+        "github": "GitHub"
+      }
+    },
+    "sections": {
+      "biography": "个人简介",
+      "workExperience": "工作经历",
+      "education": "教育背景"
+    }
+  },
+  "footer": {
+    "copyright": "© {year} TechBlog. 保留所有权利。",
+    "designedBy": "使用 Next.js 和 Tailwind CSS 设计"
+  },
+  "common": {
+    "loading": "加载中...",
+    "error": "出错了，请稍后重试。",
+    "notFound": "页面未找到",
+    "backHome": "返回首页"
+  }
+}

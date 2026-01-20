@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { t } from '../lib/i18n';
+import { SupportedLanguage } from '../locales/types';
 
 interface Post {
   id: string;
@@ -11,9 +13,10 @@ interface Post {
 
 interface PostCardProps {
   post: Post;
+  locale: SupportedLanguage;
 }
 
-export default function PostCard({ post }: PostCardProps) {
+export default function PostCard({ post, locale }: PostCardProps) {
   return (
     <div className="post-card">
       <div className="flex flex-wrap mb-3">
@@ -24,14 +27,14 @@ export default function PostCard({ post }: PostCardProps) {
         ))}
       </div>
       <h3 className="text-xl font-semibold mb-2">
-        <Link href={`/blog/${post.slug}`} className="hover:text-primary transition-colors">
+        <Link href={`/${locale}/blog/${post.slug}`} className="hover:text-primary transition-colors">
           {post.title}
         </Link>
       </h3>
       <p className="text-gray-500 text-sm mb-3">{post.date}</p>
       <p className="text-gray-700 mb-4">{post.excerpt}</p>
-      <Link href={`/blog/${post.slug}`} className="text-primary hover:underline">
-        Read more →
+      <Link href={`/${locale}/blog/${post.slug}`} className="text-primary hover:underline">
+        {t(locale, 'blog.readMore')}
       </Link>
     </div>
   );

@@ -1,0 +1,64 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "blog": "Blog",
+    "projects": "Projects"
+  },
+  "home": {
+    "hero": {
+      "title": "Welcome to TechBlog",
+      "subtitle": "Exploring the frontiers of technology, programming, and innovation. Stay updated with the latest trends and insights.",
+      "exploreArticles": "Explore Articles",
+      "viewProjects": "View Projects"
+    },
+    "latestArticles": "Latest Articles",
+    "viewAll": "View All"
+  },
+  "blog": {
+    "title": "Articles",
+    "searchPlaceholder": "Search articles...",
+    "clearFilter": "Clear",
+    "filterByTags": "Filter by tags:",
+    "sort": "Sort:",
+    "newest": "Newest",
+    "oldest": "Oldest",
+    "showingResults": "Showing {count} article(s)",
+    "readMore": "Read more →",
+    "comments": "Comments",
+    "noComments": "No comments yet",
+    "writeComment": "Write your comment...",
+    "submitComment": "Submit Comment"
+  },
+  "projects": {
+    "title": "My Projects",
+    "showingResults": "Showing {count} project(s)",
+    "github": "GitHub",
+    "demo": "Demo"
+  },
+  "about": {
+    "title": "About Me",
+    "profile": {
+      "technicalSkills": "Technical Skills",
+      "socialLinks": {
+        "twitter": "Twitter",
+        "github": "GitHub"
+      }
+    },
+    "sections": {
+      "biography": "Biography",
+      "workExperience": "Work Experience",
+      "education": "Education"
+    }
+  },
+  "footer": {
+    "copyright": "© {year} TechBlog. All rights reserved.",
+    "designedBy": "Designed with Next.js and Tailwind CSS"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong. Please try again later.",
+    "notFound": "Page not found",
+    "backHome": "Back to Home"
+  }
+}

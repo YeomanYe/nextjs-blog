@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { t } from '../lib/i18n';
+import { SupportedLanguage } from '../locales/types';
 
 interface Post {
   id: string;
@@ -15,9 +17,10 @@ interface BlogFilterProps {
   posts: Post[];
   tags: string[];
   onFilteredPostsChange: (filteredPosts: Post[]) => void;
+  locale: SupportedLanguage;
 }
 
-export default function BlogFilter({ posts, tags, onFilteredPostsChange }: BlogFilterProps) {
+export default function BlogFilter({ posts, tags, onFilteredPostsChange, locale }: BlogFilterProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [sortOption, setSortOption] = useState<'newest' | 'oldest'>('newest');
@@ -67,7 +70,7 @@ export default function BlogFilter({ posts, tags, onFilteredPostsChange }: BlogF
           <div className="flex space-x-3">
             <input
               type="text"
-              placeholder="Search articles..."
+              placeholder={t(locale, 'blog.searchPlaceholder')}
               className="flex-grow px-4 py-3 border border-[var(--border-color)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent bg-[var(--card-background)] text-[var(--text-color)]"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -79,7 +82,7 @@ export default function BlogFilter({ posts, tags, onFilteredPostsChange }: BlogF
               disabled={!searchTerm}
             >
               <span className="flex items-center gap-1">
-                <span>🔄</span> Clear
+                <span>🔄</span> {t(locale, 'blog.clearFilter')}
               </span>
             </button>
           </div>
@@ -89,7 +92,7 @@ export default function BlogFilter({ posts, tags, onFilteredPostsChange }: BlogF
         <div className="flex flex-wrap justify-between items-center">
           {/* Tags */}
           <div className="flex flex-wrap items-center mb-4 md:mb-0 gap-2">
-            <span className="text-sm font-medium text-[var(--text-color)]/90 whitespace-nowrap">Filter by tags:</span>
+            <span className="text-sm font-medium text-[var(--text-color)]/90 whitespace-nowrap">{t(locale, 'blog.filterByTags')}</span>
             <div className="flex flex-wrap gap-2">
               {tags.map((tag) => (
                 <button
@@ -109,14 +112,14 @@ export default function BlogFilter({ posts, tags, onFilteredPostsChange }: BlogF
 
           {/* Sort */}
           <div className="flex items-center gap-3">
-            <span className="text-sm font-medium text-[var(--text-color)]/90">Sort by:</span>
+            <span className="text-sm font-medium text-[var(--text-color)]/90">{t(locale, 'blog.sort')}</span>
             <select
               className="px-4 py-1.5 border border-[var(--border-color)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent bg-[var(--card-background)] text-[var(--text-color)] text-sm"
               value={sortOption}
               onChange={(e) => setSortOption(e.target.value as 'newest' | 'oldest')}
             >
-              <option value="newest">Newest First</option>
-              <option value="oldest">Oldest First</option>
+              <option value="newest">{t(locale, 'blog.newest')}</option>
+              <option value="oldest">{t(locale, 'blog.oldest')}</option>
             </select>
           </div>
         </div>

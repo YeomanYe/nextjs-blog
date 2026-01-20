@@ -1,4 +1,11 @@
-export default function Footer() {
+import { t } from '../lib/i18n';
+import { SupportedLanguage } from '../locales/types';
+
+interface FooterProps {
+  locale: SupportedLanguage;
+}
+
+export default function Footer({ locale }: FooterProps) {
   const currentYear = new Date().getFullYear();
   
   return (
@@ -6,7 +13,7 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
-            <p className="text-[var(--text-color)]/70">© {currentYear} TechBlog. All rights reserved.</p>
+            <p className="text-[var(--text-color)]/70">{t(locale, 'footer.copyright', { year: currentYear })}</p>
           </div>
           <div className="flex space-x-6">
             <a 
@@ -31,7 +38,7 @@ export default function Footer() {
         </div>
         <div className="mt-6 text-center">
           <p className="text-[var(--text-color)]/50 text-sm">
-            Built with Next.js, TypeScript, and Tailwind CSS
+            {t(locale, 'footer.designedBy')}
           </p>
         </div>
       </div>

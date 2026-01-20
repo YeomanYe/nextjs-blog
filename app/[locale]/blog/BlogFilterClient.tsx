@@ -1,10 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import BlogFilter from '../../components/BlogFilter';
-import PostCard from '../../components/PostCard';
-import { t } from '../../lib/i18n';
-import { SupportedLanguage } from '../../locales/types';
+import BlogFilter from '../../../components/BlogFilter';
+import PostCard from '../../../components/PostCard';
+import { t } from '@/lib/i18n';
+import { SupportedLanguage } from '@/locales/types';
 
 interface Post {
   id: string;

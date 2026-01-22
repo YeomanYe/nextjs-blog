@@ -73,7 +73,7 @@ export default function ProjectFilter({ projects, onFilteredProjectsChange, loca
 
     // Notify parent component when filtered projects change
     onFilteredProjectsChange(filteredProjects);
-  }, [projects, searchTerm, selectedTags, sortOption]);
+  }, [projects, searchTerm, selectedTags, sortOption, onFilteredProjectsChange]);
 
   return (
     <div className="tech-card mb-8 gradient-border">

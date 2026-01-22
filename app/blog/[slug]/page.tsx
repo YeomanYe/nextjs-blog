@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { getPostBySlug, getPosts } from '@/lib/posts';
 import Comments from '@/components/Comments';
+import { DEFAULT_LANGUAGE } from '@/lib/i18n';
 
 interface Post {
   id: string;
@@ -84,7 +85,7 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
         <h2 className="text-2xl font-semibold mb-6 flex items-center gap-2">
           <span className="text-[var(--primary-color)]">💬</span> Comments
         </h2>
-        <Comments postId={post.id} />
+        <Comments postId={post.id} locale={DEFAULT_LANGUAGE} />
       </div>
     </div>
   );

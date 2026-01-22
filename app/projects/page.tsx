@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import ProjectFilter from '../../components/ProjectFilter';
 import { Project, allProjects } from './data';
+import { DEFAULT_LANGUAGE } from '@/lib/i18n';
 
 export default function Projects() {
 
@@ -17,6 +18,7 @@ export default function Projects() {
       <ProjectFilter
         projects={allProjects}
         onFilteredProjectsChange={setFilteredProjects}
+        locale={DEFAULT_LANGUAGE}
       />
 
       {/* Results Count */}

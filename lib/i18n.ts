@@ -1,7 +1,7 @@
 import { Locale, SupportedLanguage } from '../locales/types';
 
 // Default language
-const DEFAULT_LANGUAGE: SupportedLanguage = 'en-US';
+export const DEFAULT_LANGUAGE: SupportedLanguage = 'en-US';
 
 // Load locale files
 const locales: Record<SupportedLanguage, Locale> = {

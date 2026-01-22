@@ -59,7 +59,7 @@ export default function BlogFilter({ posts, tags, onFilteredPostsChange, locale 
 
     // Notify parent component when filtered posts change
     onFilteredPostsChange(filteredPosts);
-  }, [posts, searchTerm, selectedTags, sortOption]);
+  }, [posts, searchTerm, selectedTags, sortOption, onFilteredPostsChange]);
 
   return (
     <div className="tech-card mb-8 gradient-border">

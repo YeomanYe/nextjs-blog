@@ -2,11 +2,13 @@ import Link from 'next/link';
 import { getPosts } from '@/lib/posts';
 import PostCard from '@/components/PostCard';
 import { t } from '@/lib/i18n';
+import { SupportedLanguage } from '@/locales/types';
 
 const posts = await getPosts();
 
-export default function Home({ params }: { params: any }) {
-  const { locale } = params;
+export default async function Home({ params }: { params: Promise<{ locale?: string }> }) {
+  const resolvedParams = await params;
+  const locale = (resolvedParams?.locale as SupportedLanguage) || 'en-US';
   return (
     <div>
       {/* Hero Section */}

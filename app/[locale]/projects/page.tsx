@@ -1,12 +1,20 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ProjectFilter from '@/components/ProjectFilter';
 import { Project, allProjects } from '../../projects/data';
 import { t } from '@/lib/i18n';
+import { SupportedLanguage } from '@/locales/types';
 
-export default function Projects({ params }: { params: any }) {
-  const { locale } = params;
+export default function Projects({ params }: { params: Promise<{ locale?: string }> }) {
+  const [locale, setLocale] = useState<SupportedLanguage>('en-US');
+
+  useEffect(() => {
+    params.then((resolvedParams) => {
+      setLocale((resolvedParams?.locale as SupportedLanguage) || 'en-US');
+    });
+  }, [params]);
+
   const [filteredProjects, setFilteredProjects] = useState<Project[]>(allProjects);
 
   return (

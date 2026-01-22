@@ -1,8 +1,10 @@
 import { personalInfo, skills, experiences, education } from '../../about/data';
 import { t } from '@/lib/i18n';
+import { SupportedLanguage } from '@/locales/types';
 
-export default function About({ params }: { params: any }) {
-  const { locale } = params;
+export default async function About({ params }: { params: Promise<{ locale?: string }> }) {
+  const resolvedParams = await params;
+  const locale = (resolvedParams?.locale as SupportedLanguage) || 'en-US';
   return (
     <div>
       <h1 className="text-4xl font-bold mb-8">{t(locale, 'about.title')}</h1>

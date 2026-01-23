@@ -1,9 +1,11 @@
 import { personalInfo, skills, experiences, education } from './data';
+import { t } from '@/lib/i18n';
+import { DEFAULT_LANGUAGE } from '@/lib/i18n';
 
 export default function About() {
   return (
     <div>
-      <h1 className="text-4xl font-bold mb-8">About Me</h1>
+      <h1 className="text-4xl font-bold mb-8">{t(DEFAULT_LANGUAGE, 'about.title')}</h1>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="md:col-span-1">
@@ -34,7 +36,7 @@ export default function About() {
           <div className="tech-card">
             <h3 className="text-lg font-medium mb-6 flex items-center gap-2">
               <span className="text-[var(--primary-color)] text-xl">⚡</span> 
-              Technical Skills
+              {t(DEFAULT_LANGUAGE, 'about.profile.technicalSkills')}
             </h3>
             <div className="space-y-4">
               {skills.map((skill) => (
@@ -60,7 +62,7 @@ export default function About() {
           <div className="tech-card mb-8">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
               <span className="text-[var(--primary-color)]">📖</span> 
-              Biography
+              {t(DEFAULT_LANGUAGE, 'about.sections.biography')}
             </h2>
             <div className="space-y-4 text-[var(--text-color)]/90">
               {personalInfo.bio.map((paragraph, index) => (
@@ -73,7 +75,7 @@ export default function About() {
           <div className="tech-card mb-8">
             <h2 className="text-2xl font-semibold mb-6 flex items-center gap-2">
               <span className="text-[var(--primary-color)]">💼</span> 
-              Work Experience
+              {t(DEFAULT_LANGUAGE, 'about.sections.workExperience')}
             </h2>
             <div className="space-y-8">
               {experiences.map((exp) => (
@@ -100,7 +102,7 @@ export default function About() {
           <div className="tech-card">
             <h2 className="text-2xl font-semibold mb-6 flex items-center gap-2">
               <span className="text-[var(--primary-color)]">🎓</span> 
-              Education
+              {t(DEFAULT_LANGUAGE, 'about.sections.education')}
             </h2>
             {education.map((edu) => (
               <div key={edu.id} className="relative pl-8 border-l-2 border-[var(--border-color)] before:absolute before:top-0 before:left-[-9px] before:w-4 before:h-4 before:rounded-full before:bg-gradient-to-br before:from-[var(--primary-color)] before:to-[var(--secondary-color)] before:border-2 before:border-[var(--card-background)]">

@@ -31,6 +31,16 @@ export interface Locale {
     writeComment: string;
     submitComment: string;
   };
+  comments: {
+    poweredBy: string;
+    note: string;
+    enableSteps: {
+      createRepo: string;
+      enableDiscussions: string;
+      installApp: string;
+      configure: string;
+    };
+  };
   projects: {
     title: string;
     showingResults: string;

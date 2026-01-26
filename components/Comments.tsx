@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { SupportedLanguage } from '../locales/types';
+import { t } from '../lib/i18n';
 
 interface CommentsProps {
   postId: string;
@@ -52,7 +53,7 @@ export default function Comments({ postId, locale }: CommentsProps) {
       ></div>
       <div className="mt-4 text-center">
         <p className="text-sm text-[var(--text-color)]/60">
-          Comments powered by <a 
+          {t(locale, 'comments.poweredBy')} <a 
             href="https://giscus.app/" 
             target="_blank" 
             rel="noopener noreferrer" 
@@ -62,12 +63,12 @@ export default function Comments({ postId, locale }: CommentsProps) {
           </a>
         </p>
         <div className="mt-2 text-xs text-[var(--text-color)]/50">
-          <p>Note: To enable comments, you need to:</p>
+          <p>{t(locale, 'comments.note')}</p>
           <ol className="list-decimal list-inside mt-1 space-y-0.5">
-            <li>Create a public GitHub repository</li>
-            <li>Enable Discussions in repository settings</li>
-            <li>Install the Giscus app from <a href="https://giscus.app/" target="_blank" rel="noopener noreferrer" className="text-[var(--primary-color)]">giscus.app</a></li>
-            <li>Configure Giscus and replace the placeholder values in the Comments component</li>
+            <li>{t(locale, 'comments.enableSteps.createRepo')}</li>
+            <li>{t(locale, 'comments.enableSteps.enableDiscussions')}</li>
+            <li>{t(locale, 'comments.enableSteps.installApp')}</li>
+            <li>{t(locale, 'comments.enableSteps.configure')}</li>
           </ol>
         </div>
       </div>

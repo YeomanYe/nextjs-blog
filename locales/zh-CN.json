@@ -30,6 +30,16 @@
     "writeComment": "写下你的评论...",
     "submitComment": "提交评论"
   },
+  "comments": {
+    "poweredBy": "评论由以下服务提供",
+    "note": "注意：要启用评论，您需要：",
+    "enableSteps": {
+      "createRepo": "创建一个公开的 GitHub 仓库",
+      "enableDiscussions": "在仓库设置中启用讨论功能",
+      "installApp": "从 giscus.app 安装 Giscus 应用",
+      "configure": "配置 Giscus 并替换 Comments 组件中的占位符值"
+    }
+  },
   "projects": {
     "title": "我的项目",
     "showingResults": "显示 {count} 个项目",

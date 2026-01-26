@@ -30,6 +30,16 @@
     "writeComment": "Write your comment...",
     "submitComment": "Submit Comment"
   },
+  "comments": {
+    "poweredBy": "Comments powered by",
+    "note": "Note: To enable comments, you need to:",
+    "enableSteps": {
+      "createRepo": "Create a public GitHub repository",
+      "enableDiscussions": "Enable Discussions in repository settings",
+      "installApp": "Install the Giscus app from giscus.app",
+      "configure": "Configure Giscus and replace the placeholder values in the Comments component"
+    }
+  },
   "projects": {
     "title": "My Projects",
     "showingResults": "Showing {count} project(s)",

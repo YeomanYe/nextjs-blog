@@ -44,7 +44,10 @@
     "title": "My Projects",
     "showingResults": "Showing {count} project(s)",
     "github": "GitHub",
-    "demo": "Demo"
+    "demo": "Demo",
+    "searchPlaceholder": "Search projects...",
+    "filterByTechnologies": "Filter by technologies:",
+    "name": "Name"
   },
   "about": {
     "title": "About Me",

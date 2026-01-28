@@ -44,7 +44,10 @@
     "title": "我的项目",
     "showingResults": "显示 {count} 个项目",
     "github": "GitHub",
-    "demo": "演示"
+    "demo": "演示",
+    "searchPlaceholder": "搜索项目...",
+    "filterByTechnologies": "按技术筛选:",
+    "name": "名称"
   },
   "about": {
     "title": "关于我",

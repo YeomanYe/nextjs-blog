@@ -46,6 +46,9 @@ export interface Locale {
     showingResults: string;
     github: string;
     demo: string;
+    searchPlaceholder: string;
+    filterByTechnologies: string;
+    name: string;
   };
   about: {
     title: string;

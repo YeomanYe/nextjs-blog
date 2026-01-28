@@ -84,7 +84,7 @@ export default function ProjectFilter({ projects, onFilteredProjectsChange, loca
           <div className="flex space-x-3">
             <input
               type="text"
-              placeholder="Search projects..."
+              placeholder={t(locale, 'projects.searchPlaceholder')}
               className="flex-grow px-4 py-3 border border-[var(--border-color)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent bg-[var(--card-background)] text-[var(--text-color)]"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -106,7 +106,7 @@ export default function ProjectFilter({ projects, onFilteredProjectsChange, loca
         <div className="flex flex-wrap justify-between items-center">
           {/* Tags */}
           <div className="flex flex-wrap items-center mb-4 md:mb-0 gap-2">
-            <span className="text-sm font-medium text-[var(--text-color)]/90 whitespace-nowrap">Filter by technologies:</span>
+            <span className="text-sm font-medium text-[var(--text-color)]/90 whitespace-nowrap">{t(locale, 'projects.filterByTechnologies')}</span>
             <div className="flex flex-wrap gap-2">
               {allTechnologies.map((tech) => (
                 <button
@@ -132,7 +132,7 @@ export default function ProjectFilter({ projects, onFilteredProjectsChange, loca
               value={sortOption}
               onChange={(e) => setSortOption(e.target.value as 'newest' | 'oldest' | 'name')}
             >
-              <option value="name">Name</option>
+              <option value="name">{t(locale, 'projects.name')}</option>
               <option value="newest">{t(locale, 'blog.newest')}</option>
               <option value="oldest">{t(locale, 'blog.oldest')}</option>
             </select>

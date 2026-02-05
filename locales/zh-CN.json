@@ -73,5 +73,10 @@
     "error": "出错了，请稍后重试。",
     "notFound": "页面未找到",
     "backHome": "返回首页"
+  },
+  "errors": {
+    "somethingWentWrong": "出了点问题",
+    "tryAgain": "重试",
+    "unknownError": "发生未知错误"
   }
 }

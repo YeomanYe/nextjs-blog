@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import ProjectFilter from '@/components/ProjectFilter';
-import { Project, allProjects } from '../../projects/data';
+import { Project, allProjects } from './data';
 import { t } from '@/lib/i18n';
 import { SupportedLanguage } from '@/locales/types';
 

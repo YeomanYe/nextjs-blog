@@ -1,4 +1,4 @@
-import { personalInfo, skills, experiences, education } from '../../about/data';
+import { personalInfo, skills, experiences, education } from './data';
 import { t } from '@/lib/i18n';
 import { SupportedLanguage } from '@/locales/types';
 

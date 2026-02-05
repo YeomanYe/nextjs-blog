@@ -73,5 +73,10 @@
     "error": "Something went wrong. Please try again later.",
     "notFound": "Page not found",
     "backHome": "Back to Home"
+  },
+  "errors": {
+    "somethingWentWrong": "Something went wrong",
+    "tryAgain": "Try Again",
+    "unknownError": "An unknown error occurred"
   }
 }

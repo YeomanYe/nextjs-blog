@@ -36,7 +36,7 @@ export default function Footer({ locale }: FooterProps) {
     <footer className="bg-[var(--bg-surface)] border-t border-[var(--border-color)] mt-16 relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--color-primary)] to-transparent opacity-30"></div>
 
-      <div className="container mx-auto px-4 py-12 relative z-10">
+      <div className="max-w-6xl mx-auto px-6 py-2 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-center md:text-left">
             <div className="flex items-center gap-2 mb-3 justify-center md:justify-start">

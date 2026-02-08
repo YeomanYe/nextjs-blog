@@ -160,26 +160,10 @@ a:hover {
   transition: all var(--transition-base);
 }
 
-.card::before, .post-card::before, .tech-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent 0%, var(--color-primary) 50%, transparent 100%);
-  opacity: 0;
-  transition: opacity var(--transition-base);
-}
-
 .card:hover, .post-card:hover, .tech-card:hover {
   border-color: var(--color-primary);
   transform: translateY(-4px);
   box-shadow: var(--shadow-glow), 0 10px 40px rgba(0, 0, 0, 0.4);
-}
-
-.card:hover::before, .post-card:hover::before, .tech-card:hover::before {
-  opacity: 1;
 }
 
 /* Terminal-style card corner */
@@ -262,6 +246,8 @@ a:hover {
 .btn:hover {
   box-shadow: var(--shadow-glow);
   transform: translateY(-2px);
+  color: var(--bg-main);
+  background: var(--color-primary-light);
 }
 
 .btn:active {
@@ -272,6 +258,8 @@ a:hover {
   background: transparent;
   color: var(--color-primary);
   border-color: var(--color-primary);
+  padding-left: calc(var(--space-6) + var(--space-1));
+  padding-right: calc(var(--space-6) + var(--space-1));
 }
 
 .btn-secondary:hover {

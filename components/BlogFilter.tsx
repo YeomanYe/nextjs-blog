@@ -71,7 +71,7 @@ export default function BlogFilter({ posts, tags, onFilteredPostsChange, locale 
             <input
               type="text"
               placeholder={t(locale, 'blog.searchPlaceholder')}
-              className="flex-grow px-4 py-3 border border-[var(--border-color)] rounded-lg focus:outline-none bg-[var(--bg-card)] text-[var(--text-secondary)] font-mono text-sm no-focus"
+              className="flex-grow px-4 py-3 border border-border rounded-lg focus:outline-none bg-card text-secondary font-mono text-sm no-focus"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -95,15 +95,15 @@ export default function BlogFilter({ posts, tags, onFilteredPostsChange, locale 
         <div className="flex flex-wrap justify-between items-center">
           {/* Tags */}
           <div className="flex flex-wrap items-center mb-4 md:mb-0 gap-2">
-            <span className="text-sm font-medium text-[var(--text-secondary)]/90 font-mono whitespace-nowrap">{t(locale, 'blog.filterByTags')}</span>
+            <span className="text-sm font-medium text-secondary/90 font-mono whitespace-nowrap">{t(locale, 'blog.filterByTags')}</span>
             <div className="flex flex-wrap gap-2">
               {tags.map((tag) => (
                 <button
                   key={tag}
                   className={`text-xs font-medium px-3 py-1 rounded transition-all duration-300 font-mono ${
                     selectedTags.includes(tag)
-                      ? 'bg-[var(--color-primary)] text-[var(--bg-main)]'
-                      : 'bg-[var(--border-color)] text-[var(--text-secondary)] hover:bg-[var(--color-primary)]/20 hover:text-[var(--color-primary)]'
+                      ? 'bg-primary text-bg-main'
+                      : 'bg-border text-secondary hover:bg-primary/20 hover:text-primary'
                   }`}
                   onClick={() => toggleTag(tag)}
                 >
@@ -115,9 +115,9 @@ export default function BlogFilter({ posts, tags, onFilteredPostsChange, locale 
 
           {/* Sort */}
           <div className="flex items-center gap-3 whitespace-nowrap">
-            <span className="text-sm font-medium text-[var(--text-secondary)]/90 font-mono">{t(locale, 'blog.sort')}</span>
+            <span className="text-sm font-medium text-secondary/90 font-mono">{t(locale, 'blog.sort')}</span>
             <select
-              className="px-4 py-1.5 border border-[var(--border-color)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent bg-[var(--bg-card)] text-[var(--text-secondary)] text-sm font-mono"
+              className="px-4 py-1.5 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-card text-secondary text-sm font-mono"
               value={sortOption}
               onChange={(e) => setSortOption(e.target.value as 'newest' | 'oldest')}
             >

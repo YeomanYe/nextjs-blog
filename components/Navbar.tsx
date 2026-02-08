@@ -40,7 +40,7 @@ export default function Navbar({ locale }: NavbarProps) {
     <header
       className={`sticky top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-[var(--bg-surface)]/90 backdrop-blur-md border-b border-[var(--border-color)]/50'
+          ? 'bg-surface/90 backdrop-blur-md border-b border-border/50'
           : 'bg-transparent'
       }`}
       style={{ paddingTop: '1rem', paddingBottom: '1rem' }}
@@ -49,11 +49,11 @@ export default function Navbar({ locale }: NavbarProps) {
         <div className="flex justify-between items-center">
           <Link
             href={`/${locale}`}
-            className="text-xl font-bold font-mono hover:text-[var(--color-primary-light)] transition-colors"
+            className="text-xl font-bold font-mono hover:text-primary-light transition-colors"
           >
             <span className="flex items-center gap-2">
-              <span className="w-8 h-8 rounded bg-[var(--color-primary)] flex items-center justify-center">
-                <svg className="w-5 h-5 text-[var(--bg-main)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <span className="w-8 h-8 rounded bg-primary flex items-center justify-center">
+                <svg className="w-5 h-5 text-bg-main" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                 </svg>
               </span>
@@ -70,13 +70,13 @@ export default function Navbar({ locale }: NavbarProps) {
                       href={item.href}
                       className={`px-4 py-2 rounded text-sm font-mono transition-all duration-300 relative group ${
                         pathname === item.href
-                          ? 'text-[var(--color-primary)] bg-[var(--color-primary)]/10'
-                          : 'text-[var(--text-secondary)] hover:text-[var(--color-primary)] hover:bg-[var(--border-color)]/30'
+                          ? 'text-primary bg-primary/10'
+                          : 'text-secondary hover:text-primary hover:bg-border/30'
                       }`}
                     >
                       {item.label}
                       {pathname === item.href && (
-                        <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-[var(--color-primary)] rounded-full animate-blink"></span>
+                        <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full animate-blink"></span>
                       )}
                     </Link>
                   </li>
@@ -84,44 +84,44 @@ export default function Navbar({ locale }: NavbarProps) {
               </ul>
             </nav>
 
-            <div className="w-px h-6 bg-[var(--border-color)] mx-3"></div>
+            <div className="w-px h-6 bg-border mx-3"></div>
 
             <div className="relative group">
               <button
-                className="relative px-4 py-2 rounded bg-[var(--bg-surface)]/50 border border-[var(--border-color)] hover:border-[var(--color-primary)] transition-all duration-300 group flex items-center gap-2 cursor-pointer"
+                className="relative px-4 py-2 rounded bg-surface/50 border border-border hover:border-primary transition-all duration-300 group flex items-center gap-2 cursor-pointer"
               >
-                <svg className="w-4 h-4 text-[var(--color-primary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
                 </svg>
-                <span className="text-sm font-mono text-[var(--text-secondary)]">
+                <span className="text-sm font-mono text-secondary">
                   {locale === 'en-US' ? 'EN' : '中文'}
                 </span>
-                <svg className="w-3 h-3 text-[var(--text-muted)] transition-transform duration-300 group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-3 h-3 text-muted transition-transform duration-300 group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              <div className="absolute right-0 mt-2 w-36 bg-[var(--bg-surface)]/95 backdrop-blur-lg border border-[var(--border-color)] rounded-xl shadow-[0_0_30px_rgba(255,215,0,0.15)] overflow-hidden opacity-0 invisible transform translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 cursor-default">
+              <div className="absolute right-0 mt-2 w-36 bg-surface/95 backdrop-blur-lg border border-border rounded-xl shadow-[0_0_30px_rgba(255,215,0,0.15)] overflow-hidden opacity-0 invisible transform translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 cursor-default">
                 <button
                   onClick={() => switchLanguage('en-US')}
                   className={`w-full text-left px-4 py-3 text-sm transition-all duration-300 flex items-center gap-3 cursor-pointer font-mono ${
                     locale === 'en-US'
-                      ? 'text-[var(--color-primary)] bg-[var(--color-primary)]/10 border-l-2 border-[var(--color-primary)]'
-                      : 'text-[var(--text-secondary)] hover:text-[var(--color-primary)] hover:bg-[var(--border-color)]/30'
+                      ? 'text-primary bg-primary/10 border-l-2 border-primary'
+                      : 'text-secondary hover:text-primary hover:bg-border/30'
                   }`}
                 >
-                  <span className={`w-2 h-2 rounded-full flex-shrink-0 ${locale === 'en-US' ? 'bg-[var(--color-primary)]' : 'bg-[var(--text-muted)]'}`}></span>
+                  <span className={`w-2 h-2 rounded-full flex-shrink-0 ${locale === 'en-US' ? 'bg-primary' : 'bg-muted'}`}></span>
                   <span>English</span>
                 </button>
-                <div className="h-px bg-[var(--border-color)]/50"></div>
+                <div className="h-px bg-border/50"></div>
                 <button
                   onClick={() => switchLanguage('zh-CN')}
                   className={`w-full text-left px-4 py-3 text-sm transition-all duration-300 flex items-center gap-3 cursor-pointer font-mono ${
                     locale === 'zh-CN'
-                      ? 'text-[var(--color-primary)] bg-[var(--color-primary)]/10 border-l-2 border-[var(--color-primary)]'
-                      : 'text-[var(--text-secondary)] hover:text-[var(--color-primary)] hover:bg-[var(--border-color)]/30'
+                      ? 'text-primary bg-primary/10 border-l-2 border-primary'
+                      : 'text-secondary hover:text-primary hover:bg-border/30'
                   }`}
                 >
-                  <span className={`w-2 h-2 rounded-full flex-shrink-0 ${locale === 'zh-CN' ? 'bg-[var(--color-primary)]' : 'bg-[var(--text-muted)]'}`}></span>
+                  <span className={`w-2 h-2 rounded-full flex-shrink-0 ${locale === 'zh-CN' ? 'bg-primary' : 'bg-muted'}`}></span>
                   <span>中文</span>
                 </button>
               </div>
@@ -129,10 +129,10 @@ export default function Navbar({ locale }: NavbarProps) {
           </div>
 
           <button 
-            className="md:hidden p-2 rounded-lg bg-[var(--bg-surface)]/50 border border-[var(--border-color)]"
+            className="md:hidden p-2 rounded-lg bg-surface/50 border border-border"
             onClick={() => setMenuOpen(!menuOpen)}
           >
-            <svg className="w-5 h-5 text-[var(--text-secondary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-5 h-5 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               {menuOpen ? (
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               ) : (
@@ -144,7 +144,7 @@ export default function Navbar({ locale }: NavbarProps) {
 
         {/* Mobile Menu */}
         {menuOpen && (
-          <div className="md:hidden mt-4 bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-xl p-4 shadow-[0_0_30px_rgba(255,215,0,0.15)]">
+          <div className="md:hidden mt-4 bg-surface border border-border rounded-xl p-4 shadow-[0_0_30px_rgba(255,215,0,0.15)]">
             <nav>
               <ul className="space-y-2">
                 {navItems.map((item) => (
@@ -153,8 +153,8 @@ export default function Navbar({ locale }: NavbarProps) {
                       href={item.href}
                       className={`block px-4 py-3 rounded text-sm font-mono transition-all duration-300 ${
                         pathname === item.href
-                          ? 'text-[var(--color-primary)] bg-[var(--color-primary)]/10'
-                          : 'text-[var(--text-secondary)] hover:text-[var(--color-primary)] hover:bg-[var(--border-color)]/30'
+                          ? 'text-primary bg-primary/10'
+                          : 'text-secondary hover:text-primary hover:bg-border/30'
                       }`}
                       onClick={() => setMenuOpen(false)}
                     >
@@ -165,9 +165,9 @@ export default function Navbar({ locale }: NavbarProps) {
               </ul>
             </nav>
             
-            <div className="mt-4 pt-4 border-t border-[var(--border-color)]">
+            <div className="mt-4 pt-4 border-t border-border">
               <div className="flex items-center justify-between">
-                <span className="text-sm font-mono text-[var(--text-secondary)]">Language</span>
+                <span className="text-sm font-mono text-secondary">Language</span>
                 <div className="flex gap-2">
                   <button
                     onClick={() => {
@@ -176,8 +176,8 @@ export default function Navbar({ locale }: NavbarProps) {
                     }}
                     className={`px-3 py-2 text-xs rounded font-mono transition-all duration-300 ${
                       locale === 'en-US'
-                        ? 'text-[var(--color-primary)] bg-[var(--color-primary)]/10 border border-[var(--color-primary)]'
-                        : 'text-[var(--text-secondary)] hover:text-[var(--color-primary)] hover:bg-[var(--border-color)]/30 border border-[var(--border-color)]'
+                        ? 'text-primary bg-primary/10 border border-primary'
+                        : 'text-secondary hover:text-primary hover:bg-border/30 border border-border'
                     }`}
                   >
                     EN
@@ -189,8 +189,8 @@ export default function Navbar({ locale }: NavbarProps) {
                     }}
                     className={`px-3 py-2 text-xs rounded font-mono transition-all duration-300 ${
                       locale === 'zh-CN'
-                        ? 'text-[var(--color-primary)] bg-[var(--color-primary)]/10 border border-[var(--color-primary)]'
-                        : 'text-[var(--text-secondary)] hover:text-[var(--color-primary)] hover:bg-[var(--border-color)]/30 border border-[var(--border-color)]'
+                        ? 'text-primary bg-primary/10 border border-primary'
+                        : 'text-secondary hover:text-primary hover:bg-border/30 border border-border'
                     }`}
                   >
                     中文

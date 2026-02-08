@@ -33,23 +33,23 @@ export default function Footer({ locale }: FooterProps) {
   ];
 
   return (
-    <footer className="bg-[var(--bg-surface)] border-t border-[var(--border-color)] mt-16 relative overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--color-primary)] to-transparent opacity-30"></div>
+    <footer className="bg-surface border-t border-border mt-16 relative overflow-hidden">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-30"></div>
 
       <div className="max-w-6xl mx-auto px-6 py-2 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-center md:text-left">
             <div className="flex items-center gap-2 mb-3 justify-center md:justify-start">
-              <span className="w-8 h-8 rounded bg-[var(--color-primary)] flex items-center justify-center">
-                <svg className="w-5 h-5 text-[var(--bg-main)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <span className="w-8 h-8 rounded bg-primary flex items-center justify-center">
+                <svg className="w-5 h-5 text-bg-main" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                 </svg>
               </span>
-              <span className="font-bold text-lg font-mono text-[var(--color-primary)]">
+              <span className="font-bold text-lg font-mono text-primary">
                 &gt;_TechBlog
               </span>
             </div>
-            <p className="text-[var(--text-secondary)] text-sm max-w-xs font-mono text-xs">
+            <p className="text-secondary text-sm max-w-xs font-mono text-xs">
               {locale === 'zh-CN'
                 ? '// 分享技术见解，构建开发者社区'
                 : '// Sharing tech insights to build a developer community'}
@@ -66,7 +66,7 @@ export default function Footer({ locale }: FooterProps) {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-[var(--text-secondary)] hover:text-[var(--color-primary)] transition-all duration-300 text-sm font-mono"
+                className="text-secondary hover:text-primary transition-all duration-300 text-sm font-mono"
               >
                 {link.label}
               </Link>
@@ -78,7 +78,7 @@ export default function Footer({ locale }: FooterProps) {
               <a
                 key={social.label}
                 href={social.href}
-                className="w-10 h-10 rounded-full bg-[var(--bg-card)] border border-[var(--border-color)] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--color-primary)] hover:border-[var(--color-primary)] hover:shadow-[0_0_15px_rgba(255,215,0,0.3)] transition-all duration-300"
+                className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center text-secondary hover:text-primary hover:border-primary hover:shadow-[0_0_15px_rgba(255,215,0,0.3)] transition-all duration-300"
                 aria-label={social.label}
               >
                 {social.icon}
@@ -89,24 +89,24 @@ export default function Footer({ locale }: FooterProps) {
 
         <div className="relative my-8">
           <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-[var(--border-color)]"></div>
+            <div className="w-full border-t border-border"></div>
           </div>
           <div className="relative flex justify-center">
-            <span className="font-mono text-xs text-[var(--color-primary)] bg-[var(--bg-surface)] px-3">EOF</span>
+            <span className="font-mono text-xs text-primary bg-surface px-3">EOF</span>
           </div>
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-          <p className="text-[var(--text-muted)] text-xs font-mono">
+          <p className="text-muted text-xs font-mono">
             {t(locale, 'footer.copyright', { year: currentYear })}
           </p>
-          <p className="text-[var(--text-muted)] text-xs font-mono">
-            {t(locale, 'footer.designedBy')} <span className="text-[var(--color-primary)]">_</span>
+          <p className="text-muted text-xs font-mono">
+            {t(locale, 'footer.designedBy')} <span className="text-primary">_</span>
           </p>
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md h-32 bg-[var(--color-primary)]/5 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md h-32 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
     </footer>
   );
 }

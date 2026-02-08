@@ -50,12 +50,12 @@ export default function Projects({ params }: { params: Promise<{ locale?: string
                     {project.title}
                   </h2>
                 </div>
-                <div className="flex space-x-2 opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="flex space-x-4 opacity-70 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[var(--text-color)] hover:text-[var(--primary-color)] transition-colors flex items-center gap-1"
+                    className="text-[var(--text-color)] hover:text-[var(--primary-color)] transition-colors flex items-center gap-1 whitespace-nowrap"
                     aria-label="GitHub"
                   >
                     <span className="text-[var(--primary-color)]">✦</span>{' '}
@@ -65,7 +65,7 @@ export default function Projects({ params }: { params: Promise<{ locale?: string
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[var(--text-color)] hover:text-[var(--primary-color)] transition-colors flex items-center gap-1"
+                    className="text-[var(--text-color)] hover:text-[var(--primary-color)] transition-colors flex items-center gap-1 whitespace-nowrap"
                     aria-label="Live Demo"
                   >
                     <span className="text-[var(--primary-color)]">✦</span> {t(locale, 'projects.demo')}

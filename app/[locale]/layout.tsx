@@ -1,6 +1,5 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import FloatingParticles from '@/components/FloatingParticles';
 import { SupportedLanguage } from '@/locales/types';
 
 interface LocaleLayoutProps {
@@ -14,7 +13,6 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
 
   return (
     <>
-      <FloatingParticles />
       <Navbar locale={lang} />
       <main className="container mx-auto py-8 relative">
         {children}

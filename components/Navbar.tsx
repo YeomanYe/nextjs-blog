@@ -14,6 +14,7 @@ export default function Navbar({ locale }: NavbarProps) {
   const pathname = usePathname();
   const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -127,12 +128,78 @@ export default function Navbar({ locale }: NavbarProps) {
             </div>
           </div>
 
-          <button className="md:hidden p-2 rounded-lg bg-[var(--bg-surface)]/50 border border-[var(--border-color)]">
+          <button 
+            className="md:hidden p-2 rounded-lg bg-[var(--bg-surface)]/50 border border-[var(--border-color)]"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
             <svg className="w-5 h-5 text-[var(--text-secondary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              {menuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
             </svg>
           </button>
         </div>
+
+        {/* Mobile Menu */}
+        {menuOpen && (
+          <div className="md:hidden mt-4 bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-xl p-4 shadow-[0_0_30px_rgba(255,215,0,0.15)]">
+            <nav>
+              <ul className="space-y-2">
+                {navItems.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className={`block px-4 py-3 rounded text-sm font-mono transition-all duration-300 ${
+                        pathname === item.href
+                          ? 'text-[var(--color-primary)] bg-[var(--color-primary)]/10'
+                          : 'text-[var(--text-secondary)] hover:text-[var(--color-primary)] hover:bg-[var(--border-color)]/30'
+                      }`}
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            
+            <div className="mt-4 pt-4 border-t border-[var(--border-color)]">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-mono text-[var(--text-secondary)]">Language</span>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => {
+                      switchLanguage('en-US');
+                      setMenuOpen(false);
+                    }}
+                    className={`px-3 py-2 text-xs rounded font-mono transition-all duration-300 ${
+                      locale === 'en-US'
+                        ? 'text-[var(--color-primary)] bg-[var(--color-primary)]/10 border border-[var(--color-primary)]'
+                        : 'text-[var(--text-secondary)] hover:text-[var(--color-primary)] hover:bg-[var(--border-color)]/30 border border-[var(--border-color)]'
+                    }`}
+                  >
+                    EN
+                  </button>
+                  <button
+                    onClick={() => {
+                      switchLanguage('zh-CN');
+                      setMenuOpen(false);
+                    }}
+                    className={`px-3 py-2 text-xs rounded font-mono transition-all duration-300 ${
+                      locale === 'zh-CN'
+                        ? 'text-[var(--color-primary)] bg-[var(--color-primary)]/10 border border-[var(--color-primary)]'
+                        : 'text-[var(--text-secondary)] hover:text-[var(--color-primary)] hover:bg-[var(--border-color)]/30 border border-[var(--border-color)]'
+                    }`}
+                  >
+                    中文
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </header>
   );

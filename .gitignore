@@ -54,3 +54,9 @@ tests/screenshots/
 test-results/screenshot-*
 
 *.gz
+
+.claude
+.cursor
+.trae
+_bmad
+_bmad-output

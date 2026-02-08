@@ -71,18 +71,21 @@ export default function BlogFilter({ posts, tags, onFilteredPostsChange, locale 
             <input
               type="text"
               placeholder={t(locale, 'blog.searchPlaceholder')}
-              className="flex-grow px-4 py-3 border border-[var(--border-color)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent bg-[var(--card-background)] text-[var(--text-color)]"
+              className="flex-grow px-4 py-3 border border-[var(--border-color)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent bg-[var(--bg-card)] text-[var(--text-secondary)] font-mono text-sm"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
             <button
               type="button"
-              className="btn"
+              className="btn py-2"
               onClick={() => setSearchTerm('')}
               disabled={!searchTerm}
             >
               <span className="flex items-center gap-1">
-                <span>🔄</span> {t(locale, 'blog.clearFilter')}
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                {t(locale, 'blog.clearFilter')}
               </span>
             </button>
           </div>
@@ -92,15 +95,15 @@ export default function BlogFilter({ posts, tags, onFilteredPostsChange, locale 
         <div className="flex flex-wrap justify-between items-center">
           {/* Tags */}
           <div className="flex flex-wrap items-center mb-4 md:mb-0 gap-2">
-            <span className="text-sm font-medium text-[var(--text-color)]/90 whitespace-nowrap">{t(locale, 'blog.filterByTags')}</span>
+            <span className="text-sm font-medium text-[var(--text-secondary)]/90 font-mono whitespace-nowrap">{t(locale, 'blog.filterByTags')}</span>
             <div className="flex flex-wrap gap-2">
               {tags.map((tag) => (
                 <button
                   key={tag}
-                  className={`text-xs font-medium px-3 py-1 rounded-full transition-all duration-300 ${
+                  className={`text-xs font-medium px-3 py-1 rounded transition-all duration-300 font-mono ${
                     selectedTags.includes(tag)
-                      ? 'bg-[var(--primary-color)] text-white'
-                      : 'bg-[var(--border-color)] text-[var(--text-color)] hover:bg-[var(--primary-color)]/20'
+                      ? 'bg-[var(--color-primary)] text-[var(--bg-main)]'
+                      : 'bg-[var(--border-color)] text-[var(--text-secondary)] hover:bg-[var(--color-primary)]/20 hover:text-[var(--color-primary)]'
                   }`}
                   onClick={() => toggleTag(tag)}
                 >
@@ -112,9 +115,9 @@ export default function BlogFilter({ posts, tags, onFilteredPostsChange, locale 
 
           {/* Sort */}
           <div className="flex items-center gap-3">
-            <span className="text-sm font-medium text-[var(--text-color)]/90">{t(locale, 'blog.sort')}</span>
+            <span className="text-sm font-medium text-[var(--text-secondary)]/90 font-mono">{t(locale, 'blog.sort')}</span>
             <select
-              className="px-4 py-1.5 border border-[var(--border-color)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent bg-[var(--card-background)] text-[var(--text-color)] text-sm"
+              className="px-4 py-1.5 border border-[var(--border-color)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent bg-[var(--bg-card)] text-[var(--text-secondary)] text-sm font-mono"
               value={sortOption}
               onChange={(e) => setSortOption(e.target.value as 'newest' | 'oldest')}
             >

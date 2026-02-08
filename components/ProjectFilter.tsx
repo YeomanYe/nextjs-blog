@@ -96,7 +96,10 @@ export default function ProjectFilter({ projects, onFilteredProjectsChange, loca
               disabled={!searchTerm}
             >
               <span className="flex items-center gap-1">
-                <span>🔄</span> {t(locale, 'blog.clearFilter')}
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                {t(locale, 'blog.clearFilter')}
               </span>
             </button>
           </div>

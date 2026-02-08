@@ -4,8 +4,8 @@ test('Home page screenshot test', async ({ page }) => {
   // Set viewport size to match existing screenshots
   await page.setViewportSize({ width: 1280, height: 800 });
   
-  // Navigate to the home page
-  await page.goto('http://localhost:3000');
+  // Navigate to the home page (with locale prefix)
+  await page.goto('http://localhost:3000/en-US');
   
   // Wait for the page to load completely
   await page.waitForLoadState('networkidle');
@@ -25,8 +25,8 @@ test('About page screenshot test', async ({ page }) => {
   // Set viewport size to match existing screenshots
   await page.setViewportSize({ width: 1280, height: 800 });
   
-  // Navigate to the about page
-  await page.goto('http://localhost:3000/about');
+  // Navigate to the about page (with locale prefix)
+  await page.goto('http://localhost:3000/en-US/about');
   
   // Wait for the page to load completely
   await page.waitForLoadState('networkidle');
@@ -45,8 +45,8 @@ test('Blog page screenshot test', async ({ page }) => {
   // Set viewport size to match existing screenshots
   await page.setViewportSize({ width: 1280, height: 800 });
   
-  // Navigate to the blog page
-  await page.goto('http://localhost:3000/blog');
+  // Navigate to the blog page (with locale prefix)
+  await page.goto('http://localhost:3000/en-US/blog');
   
   // Wait for the page to load completely
   await page.waitForLoadState('networkidle');
@@ -65,8 +65,8 @@ test('Projects page screenshot test', async ({ page }) => {
   // Set viewport size to match existing screenshots
   await page.setViewportSize({ width: 1280, height: 800 });
   
-  // Navigate to the projects page
-  await page.goto('http://localhost:3000/projects');
+  // Navigate to the projects page (with locale prefix)
+  await page.goto('http://localhost:3000/en-US/projects');
   
   // Wait for the page to load completely
   await page.waitForLoadState('networkidle');

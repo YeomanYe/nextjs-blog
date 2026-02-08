@@ -12,7 +12,7 @@ export default async function About({ params }: { params: Promise<{ locale?: str
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="md:col-span-1">
           {/* Profile Card */}
-          <div className="tech-card mb-6 gradient-border">
+          <div className="tech-card mb-6 default-border">
             <div className="absolute top-0 left-0 w-full h-full grid-background opacity-10"></div>
             <div className="relative z-10">
               <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-gradient-to-br from-[var(--primary-color)] to-[var(--secondary-color)] flex items-center justify-center border-2 border-[var(--card-background)] shadow-lg">

@@ -13,7 +13,7 @@ export default async function Home({ params }: { params: Promise<{ locale?: stri
   return (
     <div>
       {/* Hero Section */}
-      <section className="mb-16 relative overflow-hidden rounded-2xl p-8 md:p-12 gradient-border">
+      <section className="mb-16 relative overflow-hidden rounded-2xl p-8 md:p-12 default-border">
         <div className="absolute inset-0 grid-background opacity-20"></div>
         {/* Animated glow orbs */}
         <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--color-primary)]/20 rounded-full blur-3xl animate-pulse"></div>

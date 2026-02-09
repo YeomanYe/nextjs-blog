@@ -76,7 +76,7 @@ export default function ProjectFilter({ projects, onFilteredProjectsChange, loca
   }, [projects, searchTerm, selectedTags, sortOption, onFilteredProjectsChange]);
 
   return (
-    <div className="tech-card mb-8 gradient-border">
+    <div className="tech-card mb-8 default-border">
       <div className="absolute top-0 left-0 w-full h-full grid-background opacity-10"></div>
       <div className="relative z-10">
         {/* Search */}
@@ -85,7 +85,7 @@ export default function ProjectFilter({ projects, onFilteredProjectsChange, loca
             <input
               type="text"
               placeholder={t(locale, 'projects.searchPlaceholder')}
-              className="flex-grow px-4 py-3 border border-[var(--border-color)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent bg-[var(--card-background)] text-[var(--text-color)]"
+              className="flex-grow px-4 py-3 border border-[var(--border-color)] rounded-lg focus:outline-none bg-[var(--card-background)] text-[var(--text-color)] no-focus"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />

@@ -286,13 +286,19 @@ select {
   transition: all var(--transition-base);
 }
 
-input[type="text"]:focus,
+input[type="text"]:focus:not(.no-focus),
 input[type="email"]:focus,
 input[type="password"]:focus,
 textarea:focus,
 select:focus {
   border-color: var(--color-primary);
   box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2), var(--shadow-glow);
+}
+
+/* No focus effect for specific inputs */
+.no-focus:focus {
+  border-color: var(--border-color);
+  box-shadow: none;
 }
 
 input::placeholder,
@@ -385,6 +391,16 @@ textarea::placeholder {
   color: var(--color-primary);
   animation: blink 1s step-end infinite;
   margin-left: 2px;
+}
+
+/* ===== DEFAULT BORDER EFFECT ===== */
+
+.default-border {
+  border: 1px solid var(--color-primary);
+}
+
+.default-border:hover {
+  box-shadow: var(--shadow-glow), 0 10px 40px rgba(0, 0, 0, 0.4);
 }
 
 /* ===== HOVER EFFECTS ===== */

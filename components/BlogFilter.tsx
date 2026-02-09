@@ -62,7 +62,7 @@ export default function BlogFilter({ posts, tags, onFilteredPostsChange, locale 
   }, [posts, searchTerm, selectedTags, sortOption, onFilteredPostsChange]);
 
   return (
-    <div className="tech-card mb-8 gradient-border">
+    <div className="tech-card mb-8 default-border">
       <div className="absolute top-0 left-0 w-full h-full grid-background opacity-10"></div>
       <div className="relative z-10">
         {/* Search */}
@@ -71,7 +71,7 @@ export default function BlogFilter({ posts, tags, onFilteredPostsChange, locale 
             <input
               type="text"
               placeholder={t(locale, 'blog.searchPlaceholder')}
-              className="flex-grow px-4 py-3 border border-[var(--border-color)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent bg-[var(--bg-card)] text-[var(--text-secondary)] font-mono text-sm"
+              className="flex-grow px-4 py-3 border border-[var(--border-color)] rounded-lg focus:outline-none bg-[var(--bg-card)] text-[var(--text-secondary)] font-mono text-sm no-focus"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />

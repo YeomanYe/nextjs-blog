@@ -38,9 +38,9 @@ export default async function Home({ params }: { params: Promise<{ locale?: stri
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
-            <Link href={`/${locale}/projects`} className="btn-secondary">
+            <Link href={`/${locale}/projects`} className="btn-secondary flex items-center justify-center">
               {t(locale, 'home.hero.viewProjects')}
-              <svg className="inline-block w-4 h-4 ml-2 transition-transform duration-300 hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="inline-block w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
               </svg>
             </Link>

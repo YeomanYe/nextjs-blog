@@ -60,3 +60,4 @@ test-results/screenshot-*
 .trae
 _bmad
 _bmad-output
+.mcp.json

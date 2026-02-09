@@ -95,7 +95,7 @@ export default function ProjectFilter({ projects, onFilteredProjectsChange, loca
               onClick={() => setSearchTerm('')}
               disabled={!searchTerm}
             >
-              <span className="flex items-center gap-1">
+              <span className="flex items-center gap-1 whitespace-nowrap">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
@@ -128,7 +128,7 @@ export default function ProjectFilter({ projects, onFilteredProjectsChange, loca
           </div>
 
           {/* Sort */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 whitespace-nowrap">
             <span className="text-sm font-medium text-[var(--text-color)]/90">{t(locale, 'blog.sort')}</span>
             <select
               className="px-4 py-1.5 border border-[var(--border-color)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent bg-[var(--card-background)] text-[var(--text-color)] text-sm"
